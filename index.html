@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html class="dark" lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Zazen App</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#6B8E23",
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#111714",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans JP", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-zen-garden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+        <div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+        <div class="relative layout-container flex h-full grow flex-col">
+            <div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col max-w-[960px] flex-1 bg-white/80 dark:bg-black/70 backdrop-blur-sm rounded-xl shadow-lg">
+                    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#d1d5db] dark:border-b-[#3d5245] px-4 md:px-10 py-3">
+                        <div class="flex items-center gap-4 text-black dark:text-white">
+                            <div class="size-6">
+                                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h2 class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Zazen</h2>
+                        </div>
+                        <div x-data="themeSwitcher" x-init="initTheme()">
+                            <button @click="toggleTheme" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
+                                <span x-show="theme === 'dark'" class="material-symbols-outlined">light_mode</span>
+                                <span x-show="theme === 'light'" class="material-symbols-outlined">dark_mode</span>
+                            </button>
+                        </div>
+                    </header>
+                    <main class="flex flex-col gap-4">
+                        <div class="pb-3" x-data="{ activeTab: 'preparation' }">
+                            <div class="flex border-b border-[#D3D3D3] dark:border-[#3d5245] px-4 gap-8">
+                                <a :class="{ 'border-b-[3px] border-b-primary text-primary': activeTab === 'preparation', 'border-b-[3px] border-b-transparent text-gray-500 dark:text-[#9eb7a8]': activeTab !== 'preparation' }" @click.prevent="activeTab = 'preparation'" class="flex flex-col items-center justify-center cursor-pointer pb-[13px] pt-4">
+                                    <p class="text-sm font-bold leading-normal tracking-[0.015em]">準備</p>
+                                </a>
+                                <a :class="{ 'border-b-[3px] border-b-primary text-primary': activeTab === 'practice', 'border-b-[3px] border-b-transparent text-gray-500 dark:text-[#9eb7a8]': activeTab !== 'practice' }" @click.prevent="activeTab = 'practice'" class="flex flex-col items-center justify-center cursor-pointer pb-[13px] pt-4">
+                                    <p class="text-sm font-bold leading-normal tracking-[0.015em]">実践</p>
+                                </a>
+                            </div>
+                            <div class="pt-6" x-show="activeTab === 'preparation'">
+                                <div class="flex flex-wrap justify-between gap-3 p-4">
+                                    <p class="text-black dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">座禅の準備</p>
+                                </div>
+                                <div class="flex flex-col p-4" x-data="{ openAccordion: 1 }">
+                                    <div class="border-b border-t border-[#D3D3D3] dark:border-t-[#3d5245] dark:border-b-[#3d5245]">
+                                        <div @click="openAccordion = openAccordion === 1 ? null : 1" class="flex cursor-pointer items-center justify-between gap-6 py-4">
+                                            <p class="text-black dark:text-white text-base font-medium leading-normal">1. 姿勢を整える（調身）</p>
+                                            <div :class="{'rotate-180': openAccordion === 1}" class="text-black dark:text-white transition-transform">
+                                                <span class="material-symbols-outlined">expand_more</span>
+                                            </div>
+                                        </div>
+                                        <div x-collapse="" x-show="openAccordion === 1">
+                                            <div class="text-gray-600 dark:text-[#9eb7a8] text-sm font-normal leading-normal pb-4 space-y-4">
+                                                <p>座禅を始める前に、まずは首と肩の緊張をゆるめ、体の中心を整えます。</p>
+                                                <div>
+                                                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">首の調整</h3>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>息を吐きながらゆっくり右を向き、吸いながら正面に戻す。</li>
+                                                        <li>同様に左を向いて正面に戻す。これを3セット繰り返します。</li>
+                                                        <li>次に、首を前に倒して戻し、後ろに倒して戻す動作を3セット行います。</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">肩の調整</h3>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>両手を前で組み、まっすぐ前に伸ばす。</li>
+                                                        <li>そのまま真上に上げ、天井を見上げながら腕で大きな「8の字」を描くように回します。</li>
+                                                    </ul>
+                                                    <p class="mt-2">これらの動きで、心身のこわばりを解き放ち、静けさへと向かう準備が整えます。</p>
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">基本の座り方</h3>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>背もたれから離れて浅めに座り、両膝の間を拳一つ分あけます。</li>
+                                                        <li>右太ももに手を置いて体重をかけ、右足裏の接地を確認。左も同様に行い、左右2回ずつ繰り返します。</li>
+                                                        <li>両手を体の前に向け、壁を押すように前に伸ばし、45度ほど上へ。頭のてっぺんから糸で引かれるように背筋を伸ばします。</li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">手の形：法界定印（ほっかいじょういん）</h3>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>右手の上に左手を重ね、親指の先を軽く合わせて楕円形をつくります。</li>
+                                                        <li>手はおへその下に自然に置き、心を落ち着かせます。</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-b border-[#D3D3D3] dark:border-b-[#3d5245]">
+                                        <div @click="openAccordion = openAccordion === 2 ? null : 2" class="flex cursor-pointer items-center justify-between gap-6 py-4">
+                                            <p class="text-black dark:text-white text-base font-medium leading-normal">2. 呼吸を整える（調息）</p>
+                                            <div :class="{'rotate-180': openAccordion === 2}" class="text-black dark:text-white transition-transform">
+                                                <span class="material-symbols-outlined">expand_more</span>
+                                            </div>
+                                        </div>
+                                        <div x-collapse="" x-show="openAccordion === 2">
+                                            <div class="text-gray-600 dark:text-[#9eb7a8] text-sm font-normal leading-normal pb-4 space-y-4">
+                                                <p>座禅における呼吸は、静かに、ゆっくりと、吐き切ることが基本です。</p>
+                                                <ul class="list-disc pl-5 space-y-1">
+                                                    <li><strong>呼気（吐く息）</strong>：7〜10秒かけて、静かに息を吐き切ります。</li>
+                                                    <li><strong>吸気（吸う息）</strong>：吐き切った後、鼻からきれいな空気を吸い入れます。</li>
+                                                </ul>
+                                                <p class="mt-2">この「吐いて、吐いて、吐き切って」から「吸う」という流れを丁寧に繰り返します。</p>
+                                                <div class="mt-4">
+                                                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">数息観（すそくかん）</h3>
+                                                    <p>呼吸に意識を集中させる方法として、「数息観」という数を数える呼吸法があります。</p>
+                                                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                                                        <li>吐く息に合わせて、心の中で「一つ」「二つ」と数えます。</li>
+                                                        <li>「九つ」まで数えたら、再び「一つ」に戻ります。</li>
+                                                        <li>数えるときは「1、2、3」ではなく、「ひとつ」「ふたつ」と和語で数えます。</li>
+                                                    </ul>
+                                                    <p class="mt-2">このリズムを保ちながら、呼吸とともに心を整えましょう。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-b border-[#D3D3D3] dark:border-b-[#3d5245]">
+                                        <div @click="openAccordion = openAccordion === 3 ? null : 3" class="flex cursor-pointer items-center justify-between gap-6 py-4">
+                                            <p class="text-black dark:text-white text-base font-medium leading-normal">3. 心を整える（調心）</p>
+                                            <div :class="{'rotate-180': openAccordion === 3}" class="text-black dark:text-white transition-transform">
+                                                <span class="material-symbols-outlined">expand_more</span>
+                                            </div>
+                                        </div>
+                                        <div x-collapse="" x-show="openAccordion === 3">
+                                            <div class="text-gray-600 dark:text-[#9eb7a8] text-sm font-normal leading-normal pb-4 space-y-4">
+                                                <p>数息観を続けていると、やがて数を忘れる瞬間が訪れます。<br>その状態こそ、心が自然に静まり、雑念から離れた証です。</p>
+                                                <p class="mt-2">雑念が浮かんでも否定せず、追いかけず、ただ呼吸と数に意識を戻しましょう。<br>呼吸を通して、今この瞬間に心を澄ませる——それが座禅の本質です。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-6" x-data="timer()" x-init="init()" x-show="activeTab === 'practice'">
+                                <div class="flex flex-wrap justify-between gap-3 p-4">
+                                    <p class="text-black dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">座禅の実践</p>
+                                </div>
+                                <div class="flex flex-col justify-center p-8 gap-6 rounded-xl">
+                                    <div class="flex flex-col items-center gap-6">
+                                        <div id="breathing-circle" class="w-40 h-40 bg-primary/50 rounded-full transition-transform duration-5000 ease-linear" style="transform: scale(1);"></div>
+                                        <div class="text-7xl font-bold text-black dark:text-white tabular-nums font-mono" x-text="formatTime()">15:00</div>
+                                    </div>
+                                    <!-- Settings -->
+                                    <div class="w-full max-w-sm space-y-4 self-center">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="inhale-duration">吸う息（秒）</label>
+                                            <div class="flex items-center">
+                                                <button @click="decrementInhale()" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md">-</button>
+                                                <input id="inhale-duration" type="number" x-model.number="inhaleDuration" class="block w-full text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" placeholder="4" />
+                                                <button @click="incrementInhale()" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md">+</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="exhale-duration">吐く息（秒）</label>
+                                            <div class="flex items-center">
+                                                <button @click="decrementExhale()" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md">-</button>
+                                                <input id="exhale-duration" type="number" x-model.number="exhaleDuration" class="block w-full text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" placeholder="8" />
+                                                <button @click="incrementExhale()" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md">+</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="meditation-time">瞑想時間（分）</label>
+                                            <div class="flex items-center">
+                                                <button @click="decrementTime()" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md">-</button>
+                                                <input id="meditation-time" type="number" x-model.number="durationMinutes" @change="resetTimer" class="block w-full text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" placeholder="15" />
+                                                <button @click="incrementTime()" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md">+</button>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="sound-option">サウンド設定</label>
+                                            <select id="sound-option" x-model="soundOption" class="block w-full border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm rounded-md">
+                                                <option value="off">OFF</option>
+                                                <option value="every_second">毎秒</option>
+                                                <option value="inhale">吸う息</option>
+                                                <option value="exhale">吐く息</option>
+                                                <option value="inhale_exhale">吸う息/吐く息</option>
+                                                <option value="end">終了時</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Controls -->
+                                    <div class="flex w-full gap-2 sm:gap-4 mt-4">
+                                        <button @click="start()" :disabled="isRunning" class="flex-1 whitespace-nowrap px-4 sm:px-6 py-2 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75 transition-colors disabled:bg-gray-400">開始</button>
+                                        <button @click="pause()" :disabled="!isRunning" class="flex-1 whitespace-nowrap px-4 sm:px-6 py-2 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-500/90 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-75 transition-colors disabled:bg-gray-400">一時停止</button>
+                                        <button @click="reset()" class="flex-1 whitespace-nowrap px-4 sm:px-6 py-2 bg-gray-300 text-gray-700 font-semibold rounded-lg shadow-md hover:bg-gray-300/90 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-75 transition-colors">リセット</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
