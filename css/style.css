@@ -1,0 +1,13 @@
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        .bg-zen-garden {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-MwQ_FplfjZpx3c1Ov7j_BwzJGqUpa6flvr4nZWZoKJXqjrQoh66dC1Yv0sB_ecBZDbPcLu3AcmCIKBmm3SPnDXek393Qdeqg4v1k8pyomwc1qQ2mnsRl9n8hrcavf22vttNvhJx0DTqeta7Ap4yCZ7EFDcbCOvt9GZ0gXYNna5Bzor6iwuUIgxZhrb_habengEl4_xS3YZ7SuxfZQnb0gKrbxMuhM5ZwTpDTmvz6Hz4kfkFEs9UvARkHkvpyiENOQ0bQqpMitEo');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
