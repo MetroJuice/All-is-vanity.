@@ -72,7 +72,7 @@
                                 <div class="flex flex-col p-4" x-data="{ openAccordion: 1 }">
                                     <div class="border-b border-t border-[#D3D3D3] dark:border-t-[#3d5245] dark:border-b-[#3d5245]">
                                         <div @click="openAccordion = openAccordion === 1 ? null : 1" class="flex cursor-pointer items-center justify-between gap-6 py-4">
-                                            <p class="text-black dark:text-white text-base font-medium leading-normal">1. 姿勢を整える（調身）</p>
+                                            <p class="text-black dark:text-white text-base font-medium leading-normal">1. 姿勢を調える（調身）</p>
                                             <div :class="{'rotate-180': openAccordion === 1}" class="text-black dark:text-white transition-transform">
                                                 <span class="material-symbols-outlined">expand_more</span>
                                             </div>
@@ -85,14 +85,14 @@
                                                     <ul class="list-disc pl-5 mt-2 space-y-1">
                                                         <li>息を吐きながらゆっくり右を向き、吸いながら正面に戻す。</li>
                                                         <li>同様に左を向いて正面に戻す。これを3セット繰り返します。</li>
-                                                        <li>次に、首を前に倒して戻し、後ろに倒して戻す動作を3セット行います。</li>
+                                                        <li>同様に首を前に倒して戻し、後ろに倒して戻す動作を3セット行います。</li>
                                                     </ul>
                                                 </div>
                                                 <div>
                                                     <h3 class="font-semibold text-gray-700 dark:text-gray-300">肩の調整</h3>
                                                     <ul class="list-disc pl-5 mt-2 space-y-1">
-                                                        <li>両手を前で組み、まっすぐ前に伸ばす。</li>
-                                                        <li>そのまま真上に上げ、天井を見上げながら腕で大きな「8の字」を描くように回します。</li>
+                                                        <li>両手を体の前に向け、壁をそっと押すようにまっすぐ伸ばし、指をクロスするように組みます。</li>
+                                                        <li>そのまま真上に上げ、天井を見上げながら腕で大きな「8の字」を描くようにゆっくり5回繰り返します。</li>
                                                     </ul>
                                                     <p class="mt-2">これらの動きで、心身のこわばりを解き放ち、静けさへと向かう準備が整えます。</p>
                                                 </div>
@@ -101,14 +101,13 @@
                                                     <ul class="list-disc pl-5 mt-2 space-y-1">
                                                         <li>背もたれから離れて浅めに座り、両膝の間を拳一つ分あけます。</li>
                                                         <li>右太ももに手を置いて体重をかけ、右足裏の接地を確認。左も同様に行い、左右2回ずつ繰り返します。</li>
-                                                        <li>両手を体の前に向け、壁を押すように前に伸ばし、45度ほど上へ。頭のてっぺんから糸で引かれるように背筋を伸ばします。</li>
                                                     </ul>
                                                 </div>
                                                 <div>
                                                     <h3 class="font-semibold text-gray-700 dark:text-gray-300">手の形：法界定印（ほっかいじょういん）</h3>
                                                     <ul class="list-disc pl-5 mt-2 space-y-1">
                                                         <li>右手の上に左手を重ね、親指の先を軽く合わせて楕円形をつくります。</li>
-                                                        <li>手はおへその下に自然に置き、心を落ち着かせます。</li>
+                                                        <li>組んだ手をおへその下に自然に置き、心を落ち着かせます。</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -116,7 +115,7 @@
                                     </div>
                                     <div class="border-b border-[#D3D3D3] dark:border-b-[#3d5245]">
                                         <div @click="openAccordion = openAccordion === 2 ? null : 2" class="flex cursor-pointer items-center justify-between gap-6 py-4">
-                                            <p class="text-black dark:text-white text-base font-medium leading-normal">2. 呼吸を整える（調息）</p>
+                                            <p class="text-black dark:text-white text-base font-medium leading-normal">2. 呼吸を調える（調息）</p>
                                             <div :class="{'rotate-180': openAccordion === 2}" class="text-black dark:text-white transition-transform">
                                                 <span class="material-symbols-outlined">expand_more</span>
                                             </div>
@@ -134,7 +133,7 @@
                                                     <p>呼吸に意識を集中させる方法として、「数息観」という数を数える呼吸法があります。</p>
                                                     <ul class="list-disc pl-5 mt-2 space-y-1">
                                                         <li>吐く息に合わせて、心の中で「一つ」「二つ」と数えます。</li>
-                                                        <li>「九つ」まで数えたら、再び「一つ」に戻ります。</li>
+                                                        <li>一から十まで数えたら、再び一に戻ります。</li>
                                                         <li>数えるときは「1、2、3」ではなく、「ひとつ」「ふたつ」と和語で数えます。</li>
                                                     </ul>
                                                     <p class="mt-2">このリズムを保ちながら、呼吸とともに心を整えましょう。</p>
@@ -144,15 +143,16 @@
                                     </div>
                                     <div class="border-b border-[#D3D3D3] dark:border-b-[#3d5245]">
                                         <div @click="openAccordion = openAccordion === 3 ? null : 3" class="flex cursor-pointer items-center justify-between gap-6 py-4">
-                                            <p class="text-black dark:text-white text-base font-medium leading-normal">3. 心を整える（調心）</p>
+                                            <p class="text-black dark:text-white text-base font-medium leading-normal">3. 心を調える（調心）</p>
                                             <div :class="{'rotate-180': openAccordion === 3}" class="text-black dark:text-white transition-transform">
                                                 <span class="material-symbols-outlined">expand_more</span>
                                             </div>
                                         </div>
                                         <div x-collapse="" x-show="openAccordion === 3">
                                             <div class="text-gray-600 dark:text-[#9eb7a8] text-sm font-normal leading-normal pb-4 space-y-4">
-                                                <p>数息観を続けていると、やがて数を忘れる瞬間が訪れます。<br>その状態こそ、心が自然に静まり、雑念から離れた証です。</p>
-                                                <p class="mt-2">雑念が浮かんでも否定せず、追いかけず、ただ呼吸と数に意識を戻しましょう。<br>呼吸を通して、今この瞬間に心を澄ませる——それが座禅の本質です。</p>
+                                                <p>姿勢を整え、呼吸を整えることの行き着く先に、静かに「心を整える」瞬間があります。</p>
+                                                <p class="mt-2">座禅の最中には、様々な考え（雑念）が自然に浮かんできます。<br />それを無理に消そうとする必要はありません。<br />「今、雑念が浮かんできたな」と気づくだけでよいのです。</p>
+                                                <p class="mt-2">その「気づき」こそ、自分の心を知る第一歩。<br />心はいつも外へ外へと向かろうとしますが、調心とはそのベクトルを内へと返すこと。<br />静かに自分の内側へ向かうとき、思考は次第に鎮まり、ただ「あるがまま」の自分と出会うことができます。</p>
                                             </div>
                                         </div>
                                     </div>
