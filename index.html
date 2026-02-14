@@ -199,67 +199,67 @@
                                         class="text-black dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">
                                         坐禅の実践</p>
                                 </div>
-                                <div class="flex flex-col justify-center p-8 gap-6 rounded-xl">
+                                <div class="flex flex-col justify-center items-center p-8 gap-6 rounded-xl">
                                     <div class="flex flex-col items-center gap-6">
                                         <div id="breathing-circle"
                                             class="w-40 h-40 bg-primary/50 rounded-full transition-transform duration-5000 ease-linear"
                                             style="transform: scale(1);"></div>
-                                        <div class="text-7xl font-bold text-black dark:text-white tabular-nums font-mono"
+                                        <div class="text-7xl font-bold text-black dark:text-white tabular-nums font-mono text-center"
                                             x-text="formatTime()">15:00</div>
                                     </div>
                                     <!-- Settings -->
                                     <div class="w-full max-w-sm space-y-4 self-center">
                                         <div>
                                             <label
-                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 text-center"
                                                 for="inhale-duration">吸う息（秒）</label>
-                                            <div class="flex items-center">
+                                            <div class="flex items-center justify-center">
                                                 <button @click="decrementInhale()"
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md">-</button>
+                                                    class="w-10 flex-shrink-0 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md flex items-center justify-center">-</button>
                                                 <input id="inhale-duration" type="number"
                                                     x-model.number="inhaleDuration"
-                                                    class="block w-full text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                                                    class="block flex-1 text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
                                                     placeholder="4" />
                                                 <button @click="incrementInhale()"
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md">+</button>
+                                                    class="w-10 flex-shrink-0 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md flex items-center justify-center">+</button>
                                             </div>
                                         </div>
                                         <div>
                                             <label
-                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 text-center"
                                                 for="exhale-duration">吐く息（秒）</label>
-                                            <div class="flex items-center">
+                                            <div class="flex items-center justify-center">
                                                 <button @click="decrementExhale()"
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md">-</button>
+                                                    class="w-10 flex-shrink-0 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md flex items-center justify-center">-</button>
                                                 <input id="exhale-duration" type="number"
                                                     x-model.number="exhaleDuration"
-                                                    class="block w-full text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                                                    class="block flex-1 text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
                                                     placeholder="8" />
                                                 <button @click="incrementExhale()"
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md">+</button>
+                                                    class="w-10 flex-shrink-0 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md flex items-center justify-center">+</button>
                                             </div>
                                         </div>
                                         <div>
                                             <label
-                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 text-center"
                                                 for="meditation-time">瞑想時間（分）</label>
-                                            <div class="flex items-center">
+                                            <div class="flex items-center justify-center">
                                                 <button @click="decrementTime()"
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md">-</button>
+                                                    class="w-10 flex-shrink-0 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-l-md flex items-center justify-center">-</button>
                                                 <input id="meditation-time" type="number"
                                                     x-model.number="durationMinutes" @change="resetTimer"
-                                                    class="block w-full text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                                                    class="block flex-1 text-center border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
                                                     placeholder="15" />
                                                 <button @click="incrementTime()"
-                                                    class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md">+</button>
+                                                    class="w-10 flex-shrink-0 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-r-md flex items-center justify-center">+</button>
                                             </div>
                                         </div>
                                         <div>
                                             <label
-                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                                                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 text-center"
                                                 for="sound-option">サウンド設定</label>
                                             <select id="sound-option" x-model="soundOption"
-                                                class="block w-full border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm rounded-md">
+                                                class="block w-full border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-700/80 text-black dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm rounded-md text-center">
                                                 <option value="off">OFF</option>
                                                 <option value="every_second">毎秒</option>
                                                 <option value="inhale">吸う息</option>
@@ -267,6 +267,12 @@
                                                 <option value="inhale_exhale">吸う息/吐く息</option>
                                                 <option value="end">終了時</option>
                                             </select>
+                                        </div>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <input type="checkbox" id="sound-auto-stop" x-model="soundAutoStop"
+                                                class="rounded border-gray-300 text-primary shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="sound-auto-stop"
+                                                class="text-sm font-medium text-gray-700 dark:text-gray-300">2分で音を消す</label>
                                         </div>
                                     </div>
 
