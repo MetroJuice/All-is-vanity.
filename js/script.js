@@ -26,6 +26,7 @@
         return {
             durationMinutes: 15,
             soundOption: 'end', // 'off', 'every_second', 'inhale', 'exhale', 'end'
+            soundAutoStop: false, // Stop sound after 2 minutes
             inhaleDuration: 4,
             exhaleDuration: 8,
             timeLeft: 15 * 60,
@@ -52,7 +53,9 @@
 
                     if (this.timeLeft > 0) {
                         if (this.soundOption === 'every_second') {
-                            this.playSound();
+                            if (this.shouldPlayIntervalSound()) {
+                                this.playSound();
+                            }
                         }
                     }
 
@@ -67,6 +70,15 @@
                 }, 1000);
 
                 this.runBreathingCycle();
+            },
+            shouldPlayIntervalSound: function() {
+                if (this.soundAutoStop) {
+                    const elapsedSeconds = (this.durationMinutes * 60) - this.timeLeft;
+                    if (elapsedSeconds >= 120) {
+                        return false;
+                    }
+                }
+                return true;
             },
             playSound: function() {
                 if (this.woodblockAudio) {
@@ -86,7 +98,9 @@
 
                     this.breathingTimeout = setTimeout(() => {
                         if ((this.soundOption === 'exhale' || this.soundOption === 'inhale_exhale') && this.isRunning) {
-                            this.playSound();
+                            if (this.shouldPlayIntervalSound()) {
+                                this.playSound();
+                            }
                         }
                         this.runBreathingCycle();
                     }, this.exhaleDuration * 1000);
@@ -97,7 +111,9 @@
 
                     this.breathingTimeout = setTimeout(() => {
                         if ((this.soundOption === 'inhale' || this.soundOption === 'inhale_exhale') && this.isRunning) {
-                            this.playSound();
+                            if (this.shouldPlayIntervalSound()) {
+                                this.playSound();
+                            }
                         }
                         this.runBreathingCycle();
                     }, this.inhaleDuration * 1000);
